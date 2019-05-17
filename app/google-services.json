@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "57205941572",
+    "firebase_url": "https://iampriority-9bc19.firebaseio.com",
+    "project_id": "iampriority-9bc19",
+    "storage_bucket": "iampriority-9bc19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:57205941572:android:75af9bcda190af43",
+        "android_client_info": {
+          "package_name": "com.hybridtechie.iampriority"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "57205941572-ipmma574kic1rus942hfghfv6ev33hch.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hybridtechie.iampriority",
+            "certificate_hash": "291bba6198348265a9b2d4a1bb9ebeee7a06f0f3"
+          }
+        },
+        {
+          "client_id": "57205941572-2u7uveea3sq0surckl8cqhvfn1iq0kdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvLyrNRC5HM7or0JG7cs7c9xL2BfYQxu8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "57205941572-2u7uveea3sq0surckl8cqhvfn1iq0kdm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

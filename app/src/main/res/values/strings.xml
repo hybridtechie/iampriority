@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">IAmPriority</string>
+
+
+
+    <string name="google_web_client_id">57205941572-dree2olo1td4j56bfonecaj37hnf0f0m.apps.googleusercontent.com</string>
+    <string name="google_web_client_secret">qfv74aKVJJiOxKrxCvNAdYnu</string>
+
+
 </resources>
