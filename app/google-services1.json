@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "57205941572-m9c0n6a9t6nca67um4ti9tujm78b5soa.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.hybridtechie.iampriority",
-            "certificate_hash": "7e95a87e084495bd4efa813f8b1a62cbe3a6643a"
-          }
-        },
-        {
           "client_id": "57205941572-ipmma574kic1rus942hfghfv6ev33hch.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -44,7 +36,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "57205941572-dree2olo1td4j56bfonecaj37hnf0f0m.apps.googleusercontent.com",
+              "client_id": "57205941572-2u7uveea3sq0surckl8cqhvfn1iq0kdm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

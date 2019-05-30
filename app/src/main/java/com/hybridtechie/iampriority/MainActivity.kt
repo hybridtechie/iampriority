@@ -11,6 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         val currentUser = auth.currentUser
         if (currentUser != null) {
+            updateUI(currentUser)
             Toast.makeText(this, "Current User Found" + currentUser.email, Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, "NO User Found", Toast.LENGTH_LONG).show()
@@ -62,8 +64,9 @@ class MainActivity : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account!!)
             } catch (e: ApiException) {
+                e.printStackTrace()
                 // Google Sign In failed, update UI appropriately
-                Log.w(TAG, "Google sign in failed", e)
+                Log.e(TAG, "Google sign in failed", e)
                 // ...
             }
         }
@@ -79,7 +82,8 @@ class MainActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    Toast.makeText(this, "Successful", Toast.LENGTH_LONG).show()
+                    updateUI(user)
+                    //Toast.makeText(this, "Successful", Toast.LENGTH_LONG).show()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
@@ -92,6 +96,13 @@ class MainActivity : AppCompatActivity() {
     public override fun onDestroy() {
         super.onDestroy()
         FirebaseAuth.getInstance().signOut()
+    }
+
+    fun updateUI(user: FirebaseUser?){
+        if(user != null){
+            //Do your Stuff
+            Toast.makeText(this,"Hello ${user.displayName}",Toast.LENGTH_LONG).show()
+        }
     }
 
 }
