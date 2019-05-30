@@ -13,7 +13,6 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.hybridtechie.iampriority.activity.OnBoardingActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -103,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         if (user != null) {
             //Do your Stuff
             Toast.makeText(this, "Hello ${user.displayName}", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, OnBoardingActivity::class.java)
+            val intent = Intent(this, com.hybridtechie.iampriority.OnBoardingActivity::class.java)
             startActivity(intent)
             finish()
         }

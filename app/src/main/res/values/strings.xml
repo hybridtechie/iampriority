@@ -2,9 +2,15 @@
     <string name="app_name">IAmPriority</string>
 
 
-
     <string name="google_web_client_id">57205941572-dree2olo1td4j56bfonecaj37hnf0f0m.apps.googleusercontent.com</string>
     <string name="google_web_client_secret">qfv74aKVJJiOxKrxCvNAdYnu</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_on_boarding">OnBoardingActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 
 </resources>

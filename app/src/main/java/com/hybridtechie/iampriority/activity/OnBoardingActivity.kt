@@ -27,15 +27,15 @@ class OnBoardingActivity : AppCompatActivity() {
 
     private fun setupViewPager() {
 
-        val adapter = MyFragmentPagerAdapter(getSupportFragmentManager())
+        val adapter = MyFragmentPagerAdapter(supportFragmentManager)
 
-        var firstFragmet: MyFrament = MyFrament.newInstance("First Fragment")
-        var secondFragmet: MyFrament = MyFrament.newInstance("Second Fragment")
-        var thirdFragmet: MyFrament = MyFrament.newInstance("Third Fragment")
+        val firstFragment: MyFrament = MyFrament.newInstance("First Fragment")
+        val secondFragment: MyFrament = MyFrament.newInstance("Second Fragment")
+        val thirdFragment = MyFrament.newInstance("Third Fragment")
 
-        adapter.addFragment(firstFragmet, "ONE")
-        adapter.addFragment(secondFragmet, "TWO")
-        adapter.addFragment(thirdFragmet, "THREE")
+        adapter.addFragment(firstFragment, "ONE")
+        adapter.addFragment(secondFragment, "TWO")
+        adapter.addFragment(thirdFragment, "THREE")
 
         viewpager.adapter = adapter
 
