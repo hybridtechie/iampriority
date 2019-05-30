@@ -18,8 +18,18 @@
             android:layout_marginBottom="24dp"
             android:src="@mipmap/ic_launcher" />
 
+        <TextView
+            android:id="@+id/google_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="Welcome Name"
+            android:textSize="16sp" />
+
         <!--  Name Label -->
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -30,11 +40,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name"
+                android:text="FirstName lastname"
                 android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <Spinner
+            android:id="@+id/country_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
         <!-- Email Label -->
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
