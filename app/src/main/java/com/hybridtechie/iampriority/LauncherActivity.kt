@@ -173,7 +173,7 @@ class LauncherActivity : AppCompatActivity() {
             AppPreferences.userName = user.displayName
             AppPreferences.userEmail = user.email
             AppPreferences.userId = user.uid
-            openOnboarding()
+            openOnBoarding()
         }
     }
 
@@ -184,7 +184,7 @@ class LauncherActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun openOnboarding() {
+    private fun openOnBoarding() {
         val intent = Intent(this, com.hybridtechie.iampriority.OnBoardingActivity::class.java)
         startActivity(intent)
         finish()
@@ -204,13 +204,13 @@ class LauncherActivity : AppCompatActivity() {
             params.setMargins(10, 10, 10, 10)
             dots[i]!!.layoutParams = params
             dots[i]!!.setImageResource(R.drawable.shape_circle)
-            dots[i]!!.setColorFilter(resources.getColor(R.color.overlay_dark_30), PorterDuff.Mode.SRC_IN)
+            dots[i]!!.setColorFilter(getColor(R.color.overlay_dark_30), PorterDuff.Mode.SRC_IN)
             dotsLayout.addView(dots[i])
         }
 
         if (dots.isNotEmpty()) {
             dots[current_index]!!.setImageResource(R.drawable.shape_circle)
-            dots[current_index]!!.setColorFilter(resources.getColor(R.color.grey_10), PorterDuff.Mode.SRC_IN)
+            dots[current_index]!!.setColorFilter(getColor(R.color.grey_10), PorterDuff.Mode.SRC_IN)
         }
     }
 
@@ -232,7 +232,7 @@ class LauncherActivity : AppCompatActivity() {
             (view.findViewById(R.id.title) as TextView).text = titleArray[position]
             (view.findViewById(R.id.description) as TextView).text = descriptionArray[position]
             (view.findViewById(R.id.image) as ImageView).setImageResource(aboutImagesArray[position])
-            (view.findViewById(R.id.lyt_parent) as RelativeLayout).setBackgroundColor(resources.getColor(colorArray[position]))
+            //(view.findViewById(R.id.lyt_parent) as RelativeLayout).setBackgroundColor(getColor(colorArray[position]))
             container.addView(view)
 
             return view

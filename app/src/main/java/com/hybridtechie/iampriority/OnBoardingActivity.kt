@@ -14,13 +14,14 @@ class OnBoardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_on_boarding)
-
+        supportActionBar?.hide()
 
         if (savedInstanceState == null) {
             val manager = supportFragmentManager
             val transaction = manager.beginTransaction()
             transaction.replace(R.id.flContent, RegisterFragment.newInstance())
             transaction.commit()
+
         }
 
     }

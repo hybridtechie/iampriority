@@ -21,7 +21,7 @@ class RegisterFragment : Fragment() {
 
 
         val welcomeLabel = view.findViewById<TextView>(R.id.google_name)
-        welcomeLabel.text = ("Welcome  " + AppPreferences.userName)
+        //welcomeLabel.text = ("Welcome  " + AppPreferences.userName)
 
         val userName = view.findViewById<TextView>(R.id.input_name)
         userName.text = AppPreferences.userName
