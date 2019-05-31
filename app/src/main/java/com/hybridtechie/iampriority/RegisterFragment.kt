@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
+import com.hybridtechie.iampriority.util.AppPreferences
 
 class RegisterFragment : Fragment() {
 
@@ -16,6 +18,16 @@ class RegisterFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_register, container, false)
+
+
+        val welcomeLabel = view.findViewById<TextView>(R.id.google_name)
+        welcomeLabel.text = ("Welcome  " + AppPreferences.userName)
+
+        val userName = view.findViewById<TextView>(R.id.input_name)
+        userName.text = AppPreferences.userName
+
+        val userEmail = view.findViewById<TextView>(R.id.input_email)
+        userEmail.text = AppPreferences.userEmail
 
         val countryChooser = view.findViewById<TextInputEditText>(R.id.country_chooser)
         countryChooser.setOnClickListener { v -> showCountryDialog(v) }
@@ -30,7 +42,7 @@ class RegisterFragment : Fragment() {
     }
 
     private fun showCountryDialog(v: View) {
-        val array = arrayOf("United State", "Germany", "United Kingdom", "Australia")
+        val array = arrayOf("India", "Germany", "United Kingdom", "Australia")
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Country")
         builder.setSingleChoiceItems(array, -1) { dialogInterface, i ->

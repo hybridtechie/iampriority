@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 /**
- * Created by User on 31-05-2019..
+ * Created by HyBr!dT3ch!3 on 31-05-2019..
  */
 object AppPreferences {
     private const val NAME = "AlertsApp"
@@ -14,6 +14,7 @@ object AppPreferences {
     // list of app specific preferences
     private val PREF_IS_FIRST_RUN = Pair("PREF_IS_FIRST_RUN", false)
     private val PREF_USER_NAME = Pair("PREF_USER_NAME", null)
+    private val PREF_USER_ID = Pair("PREF_USER_ID", null)
     private val PREF_USER_PROFILE_IMAGE = Pair("PREF_USER_PROFILE_IMAGE", null)
     private val PREF_USER_EMAIL = Pair("PREF_USER_EMAIL", null)
     private val PREF_USER_COUNTRY = Pair("PREF_USER_COUNTRY", null)
@@ -24,10 +25,6 @@ object AppPreferences {
         preferences = context.getSharedPreferences(NAME, MODE)
     }
 
-    /**
-     * SharedPreferences extension function, so we won't need to call edit() and apply()
-     * ourselves on every SharedPreferences operation.
-     */
     private inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {
         val editor = edit()
         operation(editor)
@@ -44,6 +41,12 @@ object AppPreferences {
         get() = preferences.getString(PREF_USER_NAME.first, PREF_USER_NAME.second)
         set(value) = preferences.edit {
             it.putString(PREF_USER_NAME.first, value)
+        }
+
+    var userId: String?
+        get() = preferences.getString(PREF_USER_ID.first, PREF_USER_NAME.second)
+        set(value) = preferences.edit {
+            it.putString(PREF_USER_ID.first, value)
         }
 
     var userProfileImage: String?

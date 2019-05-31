@@ -40,17 +40,16 @@ class MainActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
 
-
         if (!AppPreferences.firstRun) {
             AppPreferences.firstRun = true
             Log.d(TAG, "The value of our pref is: ${AppPreferences.firstRun}")
             val currentUser = auth.currentUser
             if (currentUser != null) {
-                updateUI(currentUser)
                 Toast.makeText(this, "Current User Found" + currentUser.email, Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(this, "NO User Found", Toast.LENGTH_LONG).show()
             }
+            updateUI(currentUser)
         } else {
             openHome()
         }
@@ -110,7 +109,10 @@ class MainActivity : AppCompatActivity() {
         if (user != null) {
             //Do your Stuff
             Toast.makeText(this, "Hello ${user.displayName}", Toast.LENGTH_SHORT).show()
-
+            AppPreferences.userName = user.displayName
+            AppPreferences.userEmail = user.email
+            AppPreferences.userId = user.uid
+            openOnboarding()
         }
     }
 
