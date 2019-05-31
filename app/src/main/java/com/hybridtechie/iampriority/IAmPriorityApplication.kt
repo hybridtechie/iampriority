@@ -3,6 +3,7 @@ package com.hybridtechie.iampriority
 import android.app.Application
 import android.os.Bundle
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.hybridtechie.iampriority.util.AppPreferences
 
 
 /**
@@ -14,6 +15,7 @@ class IAmPriorityApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        AppPreferences.init(this)
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
     }
 

@@ -13,6 +13,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.hybridtechie.iampriority.util.AppPreferences
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -39,12 +40,19 @@ class MainActivity : AppCompatActivity() {
     public override fun onStart() {
         super.onStart()
 
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            updateUI(currentUser)
-            Toast.makeText(this, "Current User Found" + currentUser.email, Toast.LENGTH_LONG).show()
+
+        if (!AppPreferences.firstRun) {
+            AppPreferences.firstRun = true
+            Log.d(TAG, "The value of our pref is: ${AppPreferences.firstRun}")
+            val currentUser = auth.currentUser
+            if (currentUser != null) {
+                updateUI(currentUser)
+                Toast.makeText(this, "Current User Found" + currentUser.email, Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "NO User Found", Toast.LENGTH_LONG).show()
+            }
         } else {
-            Toast.makeText(this, "NO User Found", Toast.LENGTH_LONG).show()
+            openHome()
         }
     }
 
@@ -98,14 +106,26 @@ class MainActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().signOut()
     }
 
-    fun updateUI(user: FirebaseUser?) {
+    private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             //Do your Stuff
             Toast.makeText(this, "Hello ${user.displayName}", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, com.hybridtechie.iampriority.OnBoardingActivity::class.java)
-            startActivity(intent)
-            finish()
+
         }
+    }
+
+    private fun openHome() {
+        AppPreferences.firstRun = true
+        val intent = Intent(this, com.hybridtechie.iampriority.OnBoardingActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun openOnboarding() {
+        val intent = Intent(this, com.hybridtechie.iampriority.OnBoardingActivity::class.java)
+        startActivity(intent)
+        finish()
+
     }
 
 }
