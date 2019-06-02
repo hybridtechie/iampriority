@@ -12,6 +12,7 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="small_text"> The material environment is a 3D space, which means all objects have x, y, and z</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

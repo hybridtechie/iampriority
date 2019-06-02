@@ -51,19 +51,6 @@ class ChooseInterestsFragment : Fragment() {
         items.add(Interests("Regional Development", R.drawable.government_health, "url", "Government"))
         items.add(Interests("Social Services", R.drawable.government_defense, "url", "Government"))
         items.add(Interests("Treasury", R.drawable.government_education, "url", "Government"))
-        items.add(Interests("Tax", R.drawable.government_jobs, "url", "Government"))
-        items.add(Interests("Fashion ", R.drawable.government_environment, "url", "Deals"))
-        items.add(Interests("Beauty", R.drawable.government_energy, "url", "Deals"))
-        items.add(Interests("Design", R.drawable.government_homeaffairs, "url", "Deals"))
-        items.add(Interests("Tech", R.drawable.government_humanservices, "url", "Deals"))
-        items.add(Interests("Furniture", R.drawable.government_innovation, "url", "Deals"))
-        items.add(Interests("Sports", R.drawable.government_health, "url", "Deals"))
-        items.add(Interests("Music", R.drawable.government_defense, "url", "Deals"))
-        items.add(Interests("Books", R.drawable.government_education, "url", "Deals"))
-        items.add(Interests("Pets", R.drawable.government_jobs, "url", "Deals"))
-        items.add(Interests("Arts", R.drawable.government_environment, "url", "Deals"))
-        items.add(Interests("Food", R.drawable.government_energy, "url", "Deals"))
-        items.add(Interests("Travel", R.drawable.government_homeaffairs, "url", "Deals"))
 
 
         //set data and list adapter
@@ -85,6 +72,6 @@ class ChooseInterestsFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = ChooseInterestsFragment()
+        fun newInstance() = HomeActivity()
     }
 }

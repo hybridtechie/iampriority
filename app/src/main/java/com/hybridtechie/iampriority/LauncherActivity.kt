@@ -32,12 +32,12 @@ class LauncherActivity : AppCompatActivity() {
     private val TAG = "LauncherActivity"
 
     private var myViewPagerAdapter: MyViewPagerAdapter? = null
-    private val titleArray = arrayOf("Title1", "Title2", "Title3", "Join")
+    private val titleArray = arrayOf("Personalised Alerts", "Location Based", "Government and Private", "Join Now")
     private val descriptionArray = arrayOf(
-        "Choose your destination, plan Your trip. Pick the best place for Your holiday",
-        "Select the day, pick Your ticket. We give you the best prices. We guarantee!",
-        "Safe and Comfort flight is our priority. Professional crew and services.",
-        "Enjoy your holiday, Dont forget to feel the moment and take a photo!"
+        "Personalised Alerts , Personalised Alerts, Personalised Alerts, Personalised Alerts",
+        "Location Based Location Based Location Based Location Based Location Based",
+        "Government and Private Government and Private Government and Private Government and Private",
+        "Why Wait Join Now Why Wait Join Now Why Wait Join Now Why Wait Join Now Why Wait Join Now"
     )
     private val aboutImagesArray =
         intArrayOf(R.drawable.img_wizard_1, R.drawable.img_wizard_2, R.drawable.img_wizard_3, R.drawable.img_wizard_4)
