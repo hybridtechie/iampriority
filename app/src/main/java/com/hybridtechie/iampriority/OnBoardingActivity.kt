@@ -1,5 +1,6 @@
 package com.hybridtechie.iampriority
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
@@ -26,13 +27,18 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     fun goToChooseInterests() {
-        val newGamefragment = ChooseInterestsFragment()
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.flContent, newGamefragment)
-        fragmentTransaction.addToBackStack(null)
-        fragmentTransaction.commit()
+        val manager = supportFragmentManager
+        val transaction = manager.beginTransaction()
+        transaction.replace(R.id.flContent, ChooseInterestsFragment())
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
+    fun goToHome() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 
     companion object
 }

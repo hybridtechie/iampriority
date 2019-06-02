@@ -1,13 +1,15 @@
 package com.hybridtechie.iampriority
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.mikhaellopez.circularimageview.CircularImageView
 import java.util.*
 
-class AdapterChooseInterests(items: List<Interests>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ChooseInterestsAdapter(items: List<Interests>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items = ArrayList<Interests>()
 
@@ -27,7 +29,8 @@ class AdapterChooseInterests(items: List<Interests>) : RecyclerView.Adapter<Recy
     }
 
     inner class OriginalViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val image: ImageView = v.findViewById(R.id.image) as ImageView
+        val image: CircularImageView = v.findViewById(R.id.image) as CircularImageView
+        val title: TextView = v.findViewById(R.id.text) as TextView
 
     }
 
@@ -42,9 +45,10 @@ class AdapterChooseInterests(items: List<Interests>) : RecyclerView.Adapter<Recy
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is OriginalViewHolder) {
             holder.image.setImageResource(items[position].image)
+            holder.title.text = items[position].name
+            holder.image.setOnClickListener { v -> select(v, items[position]) }
         }
     }
-
 
     override fun getItemCount(): Int {
         return items.size
@@ -52,6 +56,19 @@ class AdapterChooseInterests(items: List<Interests>) : RecyclerView.Adapter<Recy
 
     fun setOnLoadMoreListener(onLoadMoreListener: OnLoadMoreListener) {
         this.onLoadMoreListener = onLoadMoreListener
+    }
+
+    private fun select(v: View, item: Interests) {
+        v as CircularImageView
+        if (!item.selected) {
+            item.selected = true
+            v.setBorderColor(Color.GRAY)
+            v.setBorderWidth(10f)
+        } else {
+            item.selected = false
+            v.setBorderColor(Color.TRANSPARENT)
+            v.setBorderWidth(0f)
+        }
     }
 
     interface OnLoadMoreListener {

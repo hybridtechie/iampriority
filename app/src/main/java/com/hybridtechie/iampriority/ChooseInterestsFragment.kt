@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import java.util.*
 
 class ChooseInterestsFragment : Fragment() {
@@ -15,7 +16,7 @@ class ChooseInterestsFragment : Fragment() {
     private var parent_view: View? = null
 
     private var recyclerView: RecyclerView? = null
-    private var mAdapter: AdapterChooseInterests? = null
+    private var mAdapter: ChooseInterestsAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,30 +30,57 @@ class ChooseInterestsFragment : Fragment() {
     }
 
     private fun initComponent(view: View) {
+
+        val btnComplete = view.findViewById<MaterialButton>(R.id.btn_complete)
+        btnComplete.setOnClickListener { goToHome() }
+
         recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         recyclerView!!.layoutManager = GridLayoutManager(context, 3)
         recyclerView!!.setHasFixedSize(true)
 
-        var items = ArrayList<Interests>()
-        items.add(Interests("Gears of War", R.drawable.photo_male_2, "url", "Government"))
-        items.add(Interests("Gears of War", R.drawable.ic_expand_arrow, "url", "Government"))
-        items.add(Interests("Gears of War", R.drawable.photo_male_2, "url", "Government"))
-        items.add(Interests("Gears of War", R.drawable.ic_expand_arrow, "url", "Government"))
-        items.add(Interests("Gears of War", R.drawable.photo_male_2, "url", "Government"))
-        items.add(Interests("Gears of War", R.drawable.ic_expand_arrow, "url", "Government"))
-        items.add(Interests("Gears of War", R.drawable.photo_male_2, "url", "Government"))
-        items.add(Interests("Gears of War", R.drawable.ic_expand_arrow, "url", "Government"))
+        val items = ArrayList<Interests>()
+        items.add(Interests("Health ", R.drawable.government_health, "url", "Government"))
+        items.add(Interests("Defense", R.drawable.government_defense, "url", "Government"))
+        items.add(Interests("Education", R.drawable.government_education, "url", "Government"))
+        items.add(Interests("Jobs", R.drawable.government_jobs, "url", "Government"))
+        items.add(Interests("Environment", R.drawable.government_environment, "url", "Government"))
+        items.add(Interests("Energy", R.drawable.government_energy, "url", "Government"))
+        items.add(Interests("Home Affairs", R.drawable.government_homeaffairs, "url", "Government"))
+        items.add(Interests("Human Services", R.drawable.government_humanservices, "url", "Government"))
+        items.add(Interests("Innovation", R.drawable.government_innovation, "url", "Government"))
+        items.add(Interests("Regional Development", R.drawable.government_health, "url", "Government"))
+        items.add(Interests("Social Services", R.drawable.government_defense, "url", "Government"))
+        items.add(Interests("Treasury", R.drawable.government_education, "url", "Government"))
+        items.add(Interests("Tax", R.drawable.government_jobs, "url", "Government"))
+        items.add(Interests("Fashion ", R.drawable.government_environment, "url", "Deals"))
+        items.add(Interests("Beauty", R.drawable.government_energy, "url", "Deals"))
+        items.add(Interests("Design", R.drawable.government_homeaffairs, "url", "Deals"))
+        items.add(Interests("Tech", R.drawable.government_humanservices, "url", "Deals"))
+        items.add(Interests("Furniture", R.drawable.government_innovation, "url", "Deals"))
+        items.add(Interests("Sports", R.drawable.government_health, "url", "Deals"))
+        items.add(Interests("Music", R.drawable.government_defense, "url", "Deals"))
+        items.add(Interests("Books", R.drawable.government_education, "url", "Deals"))
+        items.add(Interests("Pets", R.drawable.government_jobs, "url", "Deals"))
+        items.add(Interests("Arts", R.drawable.government_environment, "url", "Deals"))
+        items.add(Interests("Food", R.drawable.government_energy, "url", "Deals"))
+        items.add(Interests("Travel", R.drawable.government_homeaffairs, "url", "Deals"))
+
 
         //set data and list adapter
-        mAdapter = AdapterChooseInterests(items)
+        mAdapter = ChooseInterestsAdapter(items)
         recyclerView!!.adapter = mAdapter
 
         // on item list clicked
-        mAdapter!!.setOnItemClickListener(object : AdapterChooseInterests.OnItemClickListener {
+        mAdapter!!.setOnItemClickListener(object : ChooseInterestsAdapter.OnItemClickListener {
             override fun onItemClick(view: View, obj: Int?, position: Int) {
                 Log.d("ChooseInterests", "Clicked item at $position")
             }
         })
+    }
+
+    private fun goToHome() {
+        val onBoardingActivity: OnBoardingActivity = activity as OnBoardingActivity
+        onBoardingActivity.goToHome()
     }
 
     companion object {

@@ -82,7 +82,6 @@ class RegisterFragment : Fragment() {
     private fun goToChooseInterests() {
         val onBoardingActivity: OnBoardingActivity = activity as OnBoardingActivity
         onBoardingActivity.goToChooseInterests()
-        //swapFragment()
     }
 
     private fun swapFragment() {
