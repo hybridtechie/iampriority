@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.hybridtechie.iampriority.util.AppPreferences
+
 
 class RegisterFragment : Fragment() {
 
@@ -37,6 +39,9 @@ class RegisterFragment : Fragment() {
 
         val districtChooser = view.findViewById<TextInputEditText>(R.id.district_chooser)
         districtChooser.setOnClickListener { v -> showDistrictDialog(v) }
+
+        val btnNext = view.findViewById<MaterialButton>(R.id.btn_next)
+        btnNext.setOnClickListener { goToChooseInterests() }
 
         return view
     }
@@ -72,6 +77,20 @@ class RegisterFragment : Fragment() {
             dialogInterface.dismiss()
         }
         builder.show()
+    }
+
+    private fun goToChooseInterests() {
+        val onBoardingActivity: OnBoardingActivity = activity as OnBoardingActivity
+        onBoardingActivity.goToChooseInterests()
+        //swapFragment()
+    }
+
+    private fun swapFragment() {
+        val newGamefragment = ChooseInterestsFragment()
+        val fragmentTransaction = activity!!.supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.flContent, newGamefragment)
+        fragmentTransaction.addToBackStack(null)
+        fragmentTransaction.commit()
     }
 
     companion object {

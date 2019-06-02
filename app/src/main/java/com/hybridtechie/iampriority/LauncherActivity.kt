@@ -83,10 +83,6 @@ class LauncherActivity : AppCompatActivity() {
     }
 
     private fun initComponent() {
-
-        //viewPager = findViewById(R.id.view_pager)
-
-        // adding bottom dots
         bottomProgressDots(0)
 
         myViewPagerAdapter = MyViewPagerAdapter()
@@ -123,7 +119,6 @@ class LauncherActivity : AppCompatActivity() {
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
 
         if (requestCode == RCSIGNIN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
@@ -188,9 +183,7 @@ class LauncherActivity : AppCompatActivity() {
         val intent = Intent(this, com.hybridtechie.iampriority.OnBoardingActivity::class.java)
         startActivity(intent)
         finish()
-
     }
-
 
     private fun bottomProgressDots(current_index: Int) {
         val dotsLayout = findViewById<LinearLayout>(R.id.layoutDots)

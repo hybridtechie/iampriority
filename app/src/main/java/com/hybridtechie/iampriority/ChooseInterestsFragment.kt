@@ -1,12 +1,14 @@
 package com.hybridtechie.iampriority
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
 
 class ChooseInterestsFragment : Fragment() {
 
@@ -21,10 +23,6 @@ class ChooseInterestsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_choose_interest, container, false)
-
-        parent_view = view.findViewById(android.R.id.content)
-
-
         initComponent(view)
 
         return view
@@ -35,23 +33,30 @@ class ChooseInterestsFragment : Fragment() {
         recyclerView!!.layoutManager = GridLayoutManager(context, 3)
         recyclerView!!.setHasFixedSize(true)
 
-        var items: List<Int>
-        // items = { 1,2,3 }
+        var items = ArrayList<Interests>()
+        items.add(Interests("Gears of War", R.drawable.photo_male_2, "url", "Government"))
+        items.add(Interests("Gears of War", R.drawable.ic_expand_arrow, "url", "Government"))
+        items.add(Interests("Gears of War", R.drawable.photo_male_2, "url", "Government"))
+        items.add(Interests("Gears of War", R.drawable.ic_expand_arrow, "url", "Government"))
+        items.add(Interests("Gears of War", R.drawable.photo_male_2, "url", "Government"))
+        items.add(Interests("Gears of War", R.drawable.ic_expand_arrow, "url", "Government"))
+        items.add(Interests("Gears of War", R.drawable.photo_male_2, "url", "Government"))
+        items.add(Interests("Gears of War", R.drawable.ic_expand_arrow, "url", "Government"))
 
         //set data and list adapter
-        // mAdapter = AdapterChooseInterests(items)
-        // recyclerView.setAdapter(mAdapter)
+        mAdapter = AdapterChooseInterests(items)
+        recyclerView!!.adapter = mAdapter
 
         // on item list clicked
         mAdapter!!.setOnItemClickListener(object : AdapterChooseInterests.OnItemClickListener {
             override fun onItemClick(view: View, obj: Int?, position: Int) {
-                // Snackbar.make(parent_view, "Item $position clicked", Snackbar.LENGTH_SHORT).show()
+                Log.d("ChooseInterests", "Clicked item at $position")
             }
         })
     }
 
     companion object {
         @JvmStatic
-        fun newInstance() = RegisterFragment()
+        fun newInstance() = ChooseInterestsFragment()
     }
 }

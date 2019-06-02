@@ -7,9 +7,9 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
-class AdapterChooseInterests(items: List<Int>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class AdapterChooseInterests(items: List<Interests>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var items = ArrayList<Int>()
+    private var items = ArrayList<Interests>()
 
     private var onLoadMoreListener: OnLoadMoreListener? = null
     private var mOnItemClickListener: OnItemClickListener? = null
@@ -23,12 +23,11 @@ class AdapterChooseInterests(items: List<Int>) : RecyclerView.Adapter<RecyclerVi
     }
 
     init {
-        this.items = items as ArrayList<Int>
+        this.items = items as ArrayList<Interests>
     }
 
     inner class OriginalViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        var image: ImageView = v.findViewById(R.id.image) as ImageView
-        var lyt_parent: View = v.findViewById(R.id.lyt_parent) as View
+        val image: ImageView = v.findViewById(R.id.image) as ImageView
 
     }
 
@@ -42,14 +41,10 @@ class AdapterChooseInterests(items: List<Int>) : RecyclerView.Adapter<RecyclerVi
     // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is OriginalViewHolder) {
-//Tools.displayImageOriginal(ctx, view.image, items.get(position));
-            holder.lyt_parent.setOnClickListener { view ->
-                if (mOnItemClickListener != null) {
-                    mOnItemClickListener!!.onItemClick(view, items[position], position)
-                }
-            }
+            holder.image.setImageResource(items[position].image)
         }
     }
+
 
     override fun getItemCount(): Int {
         return items.size
